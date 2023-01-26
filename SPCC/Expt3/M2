@@ -1,0 +1,3 @@
+**	LDA	N1
+**	SUB	N2
+**	STA	N4

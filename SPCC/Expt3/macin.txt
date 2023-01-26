@@ -1,0 +1,11 @@
+** MACRO M1
+** MOVE A,B
+** MEND ----
+** MACRO M2
+** LDA B
+** MEND ----
+** START 1000
+** LDA A
+** CALL M1
+** CALL M2
+** ADD A,B

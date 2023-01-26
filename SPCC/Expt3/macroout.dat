@@ -1,0 +1,12 @@
+**	START	1000
+**	LDA	N1
+**	MUL	N2
+**	STA	N5
+**	LDA	N1
+**	SUB	N2
+**	STA	N4
+**	LDA	N1
+**	ADD	N2
+**	STA	N3
+**	END	**
+**	END	**

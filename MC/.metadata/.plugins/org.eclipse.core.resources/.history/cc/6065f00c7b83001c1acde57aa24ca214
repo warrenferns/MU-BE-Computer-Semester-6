@@ -1,0 +1,68 @@
+package src.
+
+import java.util.*;
+import java.lang.*;
+import java.net.*;
+import java.io.*;
+
+public class client{
+public static void main(String Args[]){
+int n,k,i,j,a=0;
+String key; 
+try{ 
+	while(true){ 
+			Socket c = new Socket("localhost", 4444); 
+			DataInputStream dis = new DataInputStream(c.getInputStream());
+			DataOutputStream dos = new DataOutputStream(c.getOutputStream());
+			Scanner sc = new Scanner(System.in); 
+
+			n=dis.readInt();
+			k=dis.readInt();
+			ArrayList<ArrayList<Integer>> codes = new ArrayList<ArrayList<Integer>>(n);
+			ArrayList <Integer> enc_msg = new ArrayList<Integer> (k); 
+
+			for(i=0;i<n;i++){
+				ArrayList <Integer> temp = new ArrayList<Integer> (k); 
+				for(j=0;j<k;j++){ 
+					a=dis.readInt(); 
+					temp.add(a); 
+				}  
+				codes.add(temp); 
+			} 
+
+
+			for(i=0;i<k;i++){
+				a=dis.readInt();
+				enc_msg.add(a);
+			}  
+
+
+			for(i=0;i<n;i++){
+				a=0;
+				for(j=0;j<k;j++){
+					a=a+enc_msg.get(j)*codes.get(i).get(j); 
+				}
+				if(a<=0){
+					System.out.println("Message of user "+(i+1)+": "+0);
+					continue;
+				}
+				else{
+					System.out.println("Message of user "+(i+1)+": "+1);
+				}
+			} 
+
+			System.out.println("\n\nPress any key to exit");
+			key=sc.next();
+			dos.writeInt(-1);
+			c.close();  
+	}
+
+}
+catch(SocketException e){ 
+System.exit(0);
+}
+catch(Exception e){
+System.out.println(e);
+}
+}}
+

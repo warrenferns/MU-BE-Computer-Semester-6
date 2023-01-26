@@ -1,0 +1,3 @@
+**	LDA	N1
+**	MUL	N2
+**	STA	N5

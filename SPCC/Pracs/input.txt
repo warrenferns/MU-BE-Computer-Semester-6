@@ -1,0 +1,4 @@
+int ab , c ;
+float b % 13.2 ;
+float x = y ;
+char ch ;
